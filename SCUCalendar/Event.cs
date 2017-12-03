@@ -1,25 +1,23 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 
 namespace SCUCalendar
 {
     public class Event
     {
-        public string Title;
-        public int Starttime;
-        public int? Endtime;
-        public string Postfix;
-        public string Location;
-        public string Summary;
-        
-        public Event(string title, int starttime, int? endtime, string postfix, string location, string summary)
-        {
-            Title = title;
-            Starttime = starttime;
-            Endtime = endtime;
-            Postfix = postfix;
-            Location = location;
-            Summary = summary;
-        }
+        [JsonProperty("title")]
+        public string title { get; set; }
+        [JsonProperty("start_time")]
+        public string starttime { get; set; }
+        [JsonProperty("end_time")]
+        public string endtime { get; set; }
+        [JsonProperty("time_postfix")]
+        public string postfix { get; set; }
+        [JsonProperty("location")]
+        public string location { get; set; }
+        [JsonProperty("description")]
+        public string description { get; set; }
 
         public string DateToString()
         {

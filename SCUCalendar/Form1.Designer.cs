@@ -41,6 +41,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.listView2 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.SuspendLayout();
             // 
             // button1
@@ -146,7 +147,7 @@
             this.listView2.GridLines = true;
             this.listView2.Location = new System.Drawing.Point(341, 302);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(552, 373);
+            this.listView2.Size = new System.Drawing.Size(1398, 373);
             this.listView2.TabIndex = 13;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -160,11 +161,17 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Matching Events";
             // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 687);
+            this.ClientSize = new System.Drawing.Size(1751, 700);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -200,6 +207,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label5;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }
 
