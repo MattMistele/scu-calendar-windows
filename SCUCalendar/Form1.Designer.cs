@@ -41,7 +41,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.listView2 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
-            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -56,9 +56,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(22, 390);
+            this.button2.Location = new System.Drawing.Point(16, 350);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(278, 83);
+            this.button2.Size = new System.Drawing.Size(284, 83);
             this.button2.TabIndex = 2;
             this.button2.Text = "+ Add Filter by Date Range";
             this.button2.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(16, 592);
+            this.button3.Location = new System.Drawing.Point(16, 463);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(284, 83);
             this.button3.TabIndex = 7;
@@ -111,7 +111,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(22, 281);
+            this.dateTimePicker1.Location = new System.Drawing.Point(16, 241);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(278, 26);
             this.dateTimePicker1.TabIndex = 8;
@@ -119,7 +119,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 257);
+            this.label3.Location = new System.Drawing.Point(12, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 9;
@@ -128,7 +128,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 318);
+            this.label4.Location = new System.Drawing.Point(12, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 20);
             this.label4.TabIndex = 11;
@@ -136,7 +136,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(22, 341);
+            this.dateTimePicker2.Location = new System.Drawing.Point(16, 301);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(278, 26);
             this.dateTimePicker2.TabIndex = 10;
@@ -147,7 +147,7 @@
             this.listView2.GridLines = true;
             this.listView2.Location = new System.Drawing.Point(341, 302);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1398, 373);
+            this.listView2.Size = new System.Drawing.Size(1319, 373);
             this.listView2.TabIndex = 13;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -161,17 +161,23 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Matching Events";
             // 
-            // directorySearcher1
+            // button4
             // 
-            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(16, 592);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(284, 83);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Filter";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1751, 700);
+            this.ClientSize = new System.Drawing.Size(2552, 700);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -207,7 +213,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label5;
-        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -20,6 +20,7 @@ namespace SCUCalendar
         const string EVENTS_URL = "https://scu-events.herokuapp.com/api/events";
 
         public Event[] eventList;
+        public List<string> filters = new List<string>();
 
         #endregion
 
@@ -55,14 +56,17 @@ namespace SCUCalendar
             ListViewItem itm;
 
             arr[0] = "Keyword";
-            arr[1] = "Engineering";
+            arr[1] = "Jack";
             itm = new ListViewItem(arr);
             listView1.Items.Add(itm);
 
             arr[0] = "Keyword";
-            arr[1] = "Bible Study";
+            arr[1] = "Campus Ministry";
             itm = new ListViewItem(arr);
             listView1.Items.Add(itm);
+
+            filters.Add("Jack");
+            filters.Add("Campus Ministry");
         }
 
         //****************************************************
@@ -73,12 +77,12 @@ namespace SCUCalendar
             listView2.FullRowSelect = true;
 
             //Add column header
-            listView2.Columns.Add("Title", 150);
-            listView2.Columns.Add("Start Time", 213);
-            listView2.Columns.Add("End Time", 150);
-            listView2.Columns.Add("Location", 150);
-            listView2.Columns.Add("PostFix", 150);
-            listView2.Columns.Add("Description", 150);
+            listView2.Columns.Add("Title", 200);
+            listView2.Columns.Add("Start Time", 125);
+            listView2.Columns.Add("End Time", 0);
+            listView2.Columns.Add("Location", 175);
+            listView2.Columns.Add("PostFix", 0);
+            listView2.Columns.Add("Description", 475);
 
             foreach (Event e in eventList)
             {
@@ -86,16 +90,14 @@ namespace SCUCalendar
                 ListViewItem item;
 
                 array[0] = e.title;
-                array[1] = e.starttime;
-                array[2] = e.endtime;
+                array[1] = e.DateToString();
+                //array[2] = e.endtime;
                 array[3] = e.location;
                 array[4] = e.postfix;
                 array[5] = e.description;
                 item = new ListViewItem(array);
                 listView2.Items.Add(item);
             }
-
-
         }
         #endregion
 
@@ -111,6 +113,8 @@ namespace SCUCalendar
 
             ListViewItem itm = new ListViewItem(arr);
             listView1.Items.Add(itm);
+
+            filters.Add(keywordTextbox.Text);
 
             keywordTextbox.Text = "";
         }
@@ -131,6 +135,7 @@ namespace SCUCalendar
                     {
                         ListViewItem itm = listView1.SelectedItems[i];
                         listView1.Items[itm.Index].Remove();
+                        filters.RemoveAt(i);
                     }
                 }
             }
@@ -152,5 +157,51 @@ namespace SCUCalendar
         }
         #endregion
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listView2.Clear();
+
+            foreach (Event ev in eventList)
+            {
+                foreach(string s in filters)
+                {
+                    if (ev.description != null)
+                    {
+                        if ((ev.description.Contains(s)) || ev.title.Contains(s))
+                        {
+                            string[] array = new string[6];
+                            ListViewItem item;
+
+                            array[0] = ev.title;
+                            array[1] = ev.DateToString();
+                            //array[2] = e.endtime;
+                            array[3] = ev.location;
+                            array[4] = ev.postfix;
+                            array[5] = ev.description;
+                            item = new ListViewItem(array);
+                            listView2.Items.Add(item);
+                        }
+                    } else
+                    {
+                        if (ev.title.Contains(s))
+                        {
+                            string[] array = new string[6];
+                            ListViewItem item;
+
+                            array[0] = ev.title;
+                            array[1] = ev.DateToString();
+                            //array[2] = e.endtime;
+                            array[3] = ev.location;
+                            array[4] = ev.postfix;
+                            array[5] = ev.description;
+                            item = new ListViewItem(array);
+                            listView2.Items.Add(item);
+                        }
+                    }
+                }
+
+                
+            }
+        }
     }
 }
